@@ -78,6 +78,7 @@ html {
   height: 100%;
   background: #022c40;
   background-image: linear-gradient(135deg, #022c40, #5ce1e6);
+  background-attachment: fixed;
 }
 
 body {
@@ -87,6 +88,7 @@ body {
   height: 100%;
   background: #022c40;
   background-image: linear-gradient(135deg, #022c40, #5ce1e6);
+  background-attachment: fixed;
 }
 
 footer {

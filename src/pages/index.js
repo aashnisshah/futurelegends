@@ -22,7 +22,7 @@ const SubText = styled.p`
   text-decoration: none;
 `
 
-const EventsLink = styled.a`
+const EventsLink = styled.span`
   font-size: 36px;
   color: #5ce1e6;
   font-family: "Noto Sans JP", sans-serif;
@@ -41,7 +41,10 @@ const Index = ({ data, location }) => {
       <SEO title="Future Legends Club" />
       {/* <Subtitle>Founder Community</Subtitle> */}
       <SubText>
-        Check out our <EventsLink href="/events">events</EventsLink>
+        Check out our{" "}
+        <Link to="events">
+          <EventsLink>events</EventsLink>
+        </Link>
       </SubText>
     </Layout>
   )

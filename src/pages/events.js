@@ -1,9 +1,33 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import styled from "styled-components"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+
+const EventsLink = styled.span`
+  font-size: 32px;
+  color: #5ce1e6;
+  font-family: "Noto Sans JP", sans-serif;
+  justify-text: center;
+  text-align: center;
+  text-decoration: none;
+  font-weight: strong;
+`
+
+const DisplayEventDate = styled.div`
+  font-size: 24px;
+  color: #fff;
+`
+
+const UpcomingEventsTitle = styled.h1`
+  font-size: 40px;
+  color: #fff;
+`
+
+const EventDescription = styled.section`
+  color: #022c40;
+`
 
 const Events = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -13,12 +37,8 @@ const Events = ({ data, location }) => {
     return (
       <Layout location={location} title={siteTitle}>
         <SEO title="All posts" />
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
+        <UpcomingEventsTitle>Events</UpcomingEventsTitle>
+        <p>No events found.</p>
       </Layout>
     )
   }
@@ -26,7 +46,7 @@ const Events = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <Bio />
+      <UpcomingEventsTitle>Events</UpcomingEventsTitle>
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
@@ -41,19 +61,19 @@ const Events = ({ data, location }) => {
                 <header>
                   <h2>
                     <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
+                      <EventsLink itemProp="headline">{title}</EventsLink>
                     </Link>
                   </h2>
-                  <small>{post.frontmatter.date}</small>
+                  <DisplayEventDate>{post.frontmatter.date}</DisplayEventDate>
                 </header>
-                <section>
+                <EventDescription>
                   <p
                     dangerouslySetInnerHTML={{
                       __html: post.frontmatter.description || post.excerpt,
                     }}
                     itemProp="description"
                   />
-                </section>
+                </EventDescription>
               </article>
             </li>
           )

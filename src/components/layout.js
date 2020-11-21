@@ -38,6 +38,12 @@ const H1 = styled.h1`
   color: #fff;
   text-shadow: 0 0 24px #5ce1e6;
 `
+
+const H2 = styled.h1`
+  font-size: 48px;
+  color: #fff;
+  text-shadow: 0 0 24px #5ce1e6;
+`
 const Footer = styled.footer`
   position: fixed;
   left: 0;
@@ -64,9 +70,11 @@ const Layout = ({ location, title, children }) => {
     )
   } else {
     header = (
-      <Link className="header-link-home" to="/">
-        {title}
-      </Link>
+      <H2>
+        <Link className="header-link-home" to="/">
+          {title}
+        </Link>
+      </H2>
     )
   }
 

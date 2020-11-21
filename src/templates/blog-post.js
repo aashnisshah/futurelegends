@@ -1,8 +1,43 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+
+const Header = styled.header`
+  padding-bottom: 24px;
+`
+
+const EventsTitle = styled.h1`
+  font-size: 48px;
+  color: #022c40;
+  font-family: "Noto Sans JP", sans-serif;
+  text-decoration: none;
+  font-weight: strong;
+`
+
+const Hr = styled.hr`
+  color: #022c40;
+`
+
+const DisplayEventDate = styled.div`
+  font-size: 18px;
+  color: #fff;
+`
+
+const EventDescription = styled.section`
+  color: #022c40;
+`
+
+const JoinButton = styled.a`
+  background-color: #022c40;
+  padding: 18px;
+  border-radius: 24px;
+  color: #ffffff;
+  font-size: 18px;
+  text-decoration: none;
+`
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -20,15 +55,18 @@ const BlogPostTemplate = ({ data, location }) => {
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
-        </header>
-        <section
+        <Header>
+          <EventsTitle itemProp="headline">
+            {post.frontmatter.title}
+          </EventsTitle>
+          <Hr />
+          <DisplayEventDate>{post.frontmatter.date}</DisplayEventDate>
+        </Header>
+        <EventDescription
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
-        <hr />
+        <JoinButton href="">Register Now!</JoinButton>
       </article>
       <nav className="blog-post-nav">
         <ul

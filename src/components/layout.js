@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
+import { FaTwitter } from "react-icons/fa"
 
 const GlobalWrapper = styled.div`
   margin: 0px;
@@ -37,6 +38,18 @@ const H1 = styled.h1`
   color: #fff;
   text-shadow: 0 0 24px #5ce1e6;
 `
+const Footer = styled.footer`
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+`
+
+const LinkText = styled.span`
+  color: #ffffff;
+`
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -63,7 +76,12 @@ const Layout = ({ location, title, children }) => {
         <Content>
           <Header className="global-header">{header}</Header>
           <main>{children}</main>
-          <footer>© {new Date().getFullYear()} Future Legends Club</footer>
+          <Footer>
+            © {new Date().getFullYear()} Future Legends Club | <FaTwitter />
+            <Link to="https://twitter.com/TheFLClub">
+              <LinkText>@TheFLClub</LinkText>
+            </Link>
+          </Footer>
         </Content>
       </ContentWrapper>
     </GlobalWrapper>

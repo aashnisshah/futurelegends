@@ -34,13 +34,13 @@ const Header = styled.header`
 `
 
 const H1 = styled.h1`
-  font-size: 80px;
+  font-size: 64px;
   color: #fff;
   text-shadow: 0 0 24px #5ce1e6;
 `
 
 const H2 = styled.h1`
-  font-size: 48px;
+  font-size: 36px;
   color: #fff;
   text-shadow: 0 0 24px #5ce1e6;
 `

@@ -2,16 +2,16 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import styled from "styled-components"
 
-import Layout from "../components/layout"
+import LayoutIndex from "../components/layoutIndex"
 import SEO from "../components/seo"
 
-const Subtitle = styled.div`
-  font-size: 36px;
-  color: #5ce1e6;
-  font-family: "Noto Sans JP", sans-serif;
-  justify-text: center;
-  text-align: center;
-`
+// const Subtitle = styled.div`
+//   font-size: 36px;
+//   color: #5ce1e6;
+//   font-family: "Noto Sans JP", sans-serif;
+//   justify-text: center;
+//   text-align: center;
+// `
 
 const SubText = styled.p`
   font-size: 36px;
@@ -37,7 +37,7 @@ const Index = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <LayoutIndex location={location} title={siteTitle}>
       <SEO title="Future Legends Club" />
       {/* <Subtitle>Founder Community</Subtitle> */}
       <SubText>
@@ -46,7 +46,7 @@ const Index = ({ data, location }) => {
           <EventsLink>events</EventsLink>
         </Link>
       </SubText>
-    </Layout>
+    </LayoutIndex>
   )
 }
 

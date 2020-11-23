@@ -6,22 +6,22 @@ import { FaTwitter } from "react-icons/fa"
 const GlobalWrapper = styled.div`
   margin: 0px;
   padding: 0px;
-  // height: 100% !important;
+  height: 100% !important;
 `
 
 const ContentWrapper = styled.div`
   margin: auto;
   width: 50%;
-  // height: 100% !important;
-  // justify-content: center;
-  // display: flex;
-  // align-items: center;
+  height: 100% !important;
+  justify-content: center;
+  display: flex;
+  align-items: center;
 `
 
 const Content = styled.div`
-  // justify-content: center;
-  // display: flex;
-  // align-items: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
   display: block;
 `
 
@@ -45,7 +45,7 @@ const H2 = styled.h1`
   text-shadow: 0 0 24px #5ce1e6;
 `
 const Footer = styled.footer`
-  position: relative;
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -58,7 +58,7 @@ const LinkText = styled.span`
   color: #ffffff;
 `
 
-const Layout = ({ location, title, children }) => {
+const LayoutIndex = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
@@ -97,4 +97,4 @@ const Layout = ({ location, title, children }) => {
   )
 }
 
-export default Layout
+export default LayoutIndex

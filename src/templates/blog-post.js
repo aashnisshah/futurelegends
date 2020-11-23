@@ -10,7 +10,7 @@ const Header = styled.header`
 `
 
 const EventsTitle = styled.h1`
-  font-size: 48px;
+  font-size: 36px;
   color: #022c40;
   font-family: "Noto Sans JP", sans-serif;
   text-decoration: none;
@@ -22,12 +22,13 @@ const Hr = styled.hr`
 `
 
 const DisplayEventDate = styled.div`
-  font-size: 18px;
+  font-size: 12px;
   color: #fff;
 `
 
 const EventDescription = styled.section`
-  color: #022c40;
+  color: #efefef;
+  font-size: 16px;
 `
 
 const JoinButton = styled.a`
@@ -60,13 +61,17 @@ const BlogPostTemplate = ({ data, location }) => {
             {post.frontmatter.title}
           </EventsTitle>
           <Hr />
-          <DisplayEventDate>{post.frontmatter.date}</DisplayEventDate>
+          <DisplayEventDate>
+            {post.frontmatter.date} at {post.frontmatter.time}
+          </DisplayEventDate>
         </Header>
         <EventDescription
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
-        <JoinButton href="">Register Now!</JoinButton>
+        <JoinButton href={post.frontmatter.registrationLink}>
+          Register Now!
+        </JoinButton>
       </article>
       <nav className="blog-post-nav">
         <ul
@@ -118,7 +123,9 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        time
         description
+        registrationLink
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
